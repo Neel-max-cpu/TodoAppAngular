@@ -1,9 +1,22 @@
-<div class="w-full rounded-xl p-1 bg-cover bg-center">
-    <div class="mt-4">
-        <app-task></app-task>
+<div class="w-full h-full rounded-xl p-1 bg-cover bg-center space-y-2">
+    <!-- button toggle option -->
+    <div class="flex items-center justify-center mt-10">
+      <mat-button-toggle-group class="!rounded-none" [(ngModel)]="selectedView" aria-label="Font Style">
+        <mat-button-toggle class="!font-mono !text-gray-500" value="tasks" [ngClass]="{'!bg-green-700 !text-white': selectedView === 'tasks' }">
+          Tasks
+        </mat-button-toggle>
+        <mat-button-toggle class="!font-mono !text-gray-500" value="completed" [ngClass]="{ '!bg-green-700 !text-white': selectedView === 'completed' }">
+          Completed
+        </mat-button-toggle>
+      </mat-button-toggle-group>
     </div>
-    <div>
-        <app-completed></app-completed>
+  
+    <!-- conditional rendering -->
+    <div *ngIf="selectedView === 'tasks'">
+      <app-task></app-task> 
     </div>
-
-</div>
+    <div *ngIf="selectedView === 'completed'">
+      <app-completed></app-completed> 
+    </div>
+  </div>
+  
