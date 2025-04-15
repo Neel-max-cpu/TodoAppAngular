@@ -1,11 +1,11 @@
 <div class="w-full h-full rounded-xl p-1 bg-cover bg-center space-y-2">
     <!-- button toggle option -->
     <div class="flex items-center justify-center mt-10">
-      <mat-button-toggle-group class="!rounded-none" [(ngModel)]="selectedView" aria-label="Font Style">
-        <mat-button-toggle class="!font-mono !text-gray-500" value="tasks" [ngClass]="{'!bg-green-700 !text-white': selectedView === 'tasks' }">
+      <mat-button-toggle-group class="!rounded-lg !border-none !bg-[#C9D3C3] !w-50" [(ngModel)]="selectedView" aria-label="Font Style">
+        <mat-button-toggle class="!font-mono !text-gray-800 !w-50" value="tasks" [ngClass]="{'!bg-green-700 !text-white !w-50': selectedView === 'tasks' }">
           Tasks
         </mat-button-toggle>
-        <mat-button-toggle class="!font-mono !text-gray-500" value="completed" [ngClass]="{ '!bg-green-700 !text-white': selectedView === 'completed' }">
+        <mat-button-toggle class="!font-mono !text-gray-800 !w-50" value="completed" [ngClass]="{ '!bg-green-700 !text-white !w-50': selectedView === 'completed' }">
           Completed
         </mat-button-toggle>
       </mat-button-toggle-group>

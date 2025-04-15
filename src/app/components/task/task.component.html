@@ -4,10 +4,16 @@
 
     <div class="flex items-center justify-between mb-5">
         <h1 class="font-semibold text-3xl text-gray-800 font-mono">Pending Tasks</h1>
-        <button class="bg-green-500 p-2 hover:bg-green-600 hover:cursor-pointer rounded-xl items-center text-white font-mono font-bold">
+        <button (click)="onAddClick()" class="bg-green-500 p-2 hover:bg-green-600 hover:cursor-pointer rounded-xl items-center text-white font-mono font-bold">
             + Add Task
         </button>
     </div>
+
+    <app-add-task 
+    *ngIf="showAddTask"
+    [task]="taskToEdit"
+    (closeForm)="handleFormClose($event)"
+    ></app-add-task>
 
     <div class="flex flex-col space-y-2">
         <!-- task eg -->
@@ -32,20 +38,22 @@
         <!-- looping through the json file -->
             <div *ngFor="let todo of todoItems" class="shadow-xl rounded-xl shadow-blue-100 bg-white p-5">
                 <div class="flex justify-between items-center">
-                <div class="flex space-x-2">
-                    <input type="checkbox" />
-                    <p>{{ todo.title }}</p>
+                <div class="flex space-x-2">                
+                    <p>{{ todo.title }}</p>                    
+                    <div class="flex space-x-0.5">
+                        <lucide-icon [img]="Clock" class="my-icon mt-0.5 h-5 w-5 flex items-center text-gray-500"></lucide-icon>             
+                        <p class="font-mono text-sm items-center flex">{{ todo.date }}</p>
+                    </div>                
                 </div>
-                <div class="flex space-x-1">
-                    <lucide-icon [img]="Clock" class="my-icon h-5 w-5 text-gray-500"></lucide-icon>             
-                    <p>{{ todo.date }}</p>
-                </div>
                 <div class="flex space-x-2">
-                    <button class="hover:cursor-pointer text-gray-500 hover:text-gray-600">
+                    <button (click)="onEdit(todo)" class="hover:cursor-pointer text-gray-500 hover:text-gray-600">
                         <lucide-icon [img]="Pencil" class="my-icon h-4 w-4 "></lucide-icon>
                     </button>
-                    <button class="bg-green-500 p-1 rounded-lg hover:cursor-pointer hover:bg-green-600">
+                    <button (click)="onComplete(todo)" class="bg-green-500 p-1 rounded-lg hover:cursor-pointer hover:bg-green-600">
                         <lucide-icon [img]="Check" class="my-icon h-5 w-5 text-white"></lucide-icon>             
+                    </button>
+                    <button (click)="onDelete(todo.id!)" class="bg-red-500 p-1 rounded-lg hover:cursor-pointer hover:bg-red-600">
+                        <lucide-icon [img]="Trash2" class="my-icon h-5 w-5 text-white"></lucide-icon>             
                     </button>
                 </div>
                 </div>
