@@ -44,11 +44,6 @@
       "id": "75cf",
       "title": "adding task1",
       "date": "2025-04-17"
-    },
-    {
-      "id": "0f72",
-      "title": "adding task 2",
-      "date": "2025-04-18"
     }
   ],
   "completed": [
@@ -56,6 +51,11 @@
       "id": "3",
       "title": "Code Review",
       "date": "2025-04-17"
+    },
+    {
+      "id": "0f72",
+      "title": "adding task 2",
+      "date": "2025-04-18"
     }
   ]
 }
