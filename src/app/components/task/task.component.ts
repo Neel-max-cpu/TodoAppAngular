@@ -4,7 +4,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 
 // icon ---
-import { LucideAngularModule, Pencil, Check, Clock, Trash2  } from 'lucide-angular';
+import { LucideAngularModule, Pencil, Check, Clock, Trash2, CirclePlus   } from 'lucide-angular';
 
 // models -- 
 import { Todo } from '../../model/todo.type';
@@ -39,6 +39,7 @@ export class TaskComponent implements OnInit {
   readonly Check = Check;
   readonly Clock = Clock;
   readonly Trash2  = Trash2 ;
+  readonly CirclePlus = CirclePlus;
 
   todoItems :Array<Todo>=[];
 
